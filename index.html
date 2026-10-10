@@ -1,14 +1,62 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
-    <title>Subrata Kayal</title>
+    <!-- =========================================
+        The purpose of the HTML <head> section is to give the browser information about our website before it displays the visible page content.
+Think of our website like a book:
+- <head> is the book's information page: title, settings, and instructions.
+- <body> is the actual book content that people read and see.
+    ========================================== -->
+    <!-- Supports special characters and symbols -->
+    <meta charset="UTF-8">
+    <!-- Makes the website adapt to mobile screens -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Description that search engines may show in results -->
+    <meta
+        name="description"
+        content="Personal portfolio and technology blog of Luxraj (Subrata) Kayal, featuring engineering projects, software development, technology articles and practical guides."
+    >
+    <!-- Text displayed in the browser tab -->
+    <title>Luxraj (Subrata) Kayal</title>
+     <!-- =========================================
+         2. CSS STYLESHEET
+         This file controls the website's appearance,
+         including colours, spacing, fonts and layout.
+    ========================================== -->
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
+    <!-- =========================================
+         3. TOP BAR
+         A thin strip at the top of the website.
+         It contains the website slogan and quick links.
+    ========================================== -->
+    <!-- DIV Groups elements together for styling and layout control -->
+    <div class="topbar">
+
+        <div class="topbar-container">
+            <!-- Website slogan -->
+            <span>Engineering · Technology · Software </span>
+            <!-- Quick links displayed on the right -->
+            <div class="top-links">
+                <span><a href="index.html" target="_blank" rel="noopener noreferrer" aria-label="Home">Home</a></span>
+                <span><a href="YOUR_LINKEDIN_PROFILE_URL" target="_blank" rel="noopener noreferrer">LinkedIn</a></span>
+                <span><a href="https://github.com/LuxrajKayal" target="_blank" rel="noopener noreferrer">GitHub</a></span>
+                <span><a href="mailto:YOUR_EMAIL_ADDRESS" aria-label="Email">
+                    <img src="images/icons/email.svg" alt="Email icon">
+                </a></span>
+                <span><a href="https://www.facebook.com/SubrataKayalOP" aria-label="Personal website coming soon">
+                    <img src="images/icons/website.svg" alt="Website icon">
+                <!-- Using facebook link as personal website for development purposes, later to be replaced -->
+                    </a></span>
+            </div>
+        </div>
+    </div>
     <header>
         <img src="images/banner.png" alt="Blue technology banner" class="banner-image">
         <div class="banner-content">
-            <h1>Subrata Kayal</h1>
+            <h1>Luxraj (Subrata) Kayal</h1>
             <p>Engineering · Technology · Software</p>
         </div>
     </header>

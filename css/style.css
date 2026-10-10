@@ -1,8 +1,62 @@
+
+/* ==================================================
+   1. GLOBAL RESET AND DEFAULT STYLES
+
+   These rules set the basic appearance of the website.
+   The universal selector (*) targets every HTML element.
+================================================== */
+
+/* Include padding and borders inside element dimensions */
+* {
+    box-sizing: border-box;
+}
+/* Default styling for the whole webpage */
+
 body {
     margin: 0;
-    padding: 0;
-    overflow-y: scroll;
+    font-family: Arial, Helvetica, sans-serif;
+    color: #171717;
+    background: #fff;
+    line-height: 1.5;
 }
+/* Remove underlines from links */
+a {
+    text-decoration: none;
+    color: inherit;
+}
+/* ==================================================
+   2. REUSABLE CONTAINER
+
+   The container keeps content aligned in the centre
+   and prevents it from becoming too wide on large screens.
+================================================== */
+.container {
+    width: min(1180px, 94%);
+    margin: auto;
+}
+/* ==================================================
+   3. TOP BAR
+
+   The thin dark strip above the main website header.
+================================================== */
+.topbar {
+    background: #111;
+    color: #ddd;
+    font-size: 12px;
+}
+/* Align the slogan and quick links horizontally */
+.topbar .topbar-container {
+    height: 34px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+/* Arrange the quick links next to each other */
+.top-links {
+    display: flex;
+    gap: 20px;
+}
+
 header {
     position: relative;
     color: white;
