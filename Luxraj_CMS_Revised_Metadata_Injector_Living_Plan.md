@@ -142,6 +142,51 @@ flowchart TD
 - If the selected source file changes between preview and commit, revalidate it rather than using stale code-line positions or overwriting remote updates.
 - The exact counting definition for **number of items** on a code card, advanced CSS/script syntax matching, and edge cases for conflicts inside large multi-item groups will be defined in later technical planning. These details do not change the requirement for user-selected code-line insertion.
 - Task 16 is a **planning decision**, not permission to modify the application or GitHub repository.
+```mermaid
+flowchart TD
+    A[Open Code Injector in Metadata Injector sidebar] --> B{Prepare code selection}
+    subgraph T161[Task 16.1 - Templates and saved groups]
+        C[Add template: name, code, HTML / Script / CSS] --> D[Save reusable code card]
+        D --> E{Create saved group?}
+        E -->|Yes| F[Name group and select existing code cards]
+        F --> G[Save reusable group]
+        E -->|No| H[Use individual code card]
+        D --> P[Show per-page code presence: all / some / none]
+    end
+    B --> C
+    B --> I[Choose existing individual card or saved group]
+    G --> I
+    H --> I
+    subgraph T163[Task 16.3 - Instant selection and bulk injection]
+        J[Select multiple saved code cards] --> K[Use temporary instant group without saving]
+        K --> L{Single page or multiple pages?}
+        I --> L
+    end
+    B --> J
+    subgraph T162[Task 16.2 - Page detection and line-specific injection]
+        M[Select Website Type and Page Type] --> N[Detect HTML / HTM pages in active repo and branch]
+        N --> O[Match Task 15 website and page type attributes]
+        O --> Q[Select target page or pages]
+        Q --> R[Inspect each actual page and code-card presence]
+        R --> S[Show source with visible line numbers]
+        S --> U[Choose exact insertion line for EACH selected page]
+        U --> V[Check matching element or script syntax, not values alone]
+        V --> W{Existing matching code?}
+        W -->|Yes| X[Show matching items and warn; choose Duplicate or Replace]
+        W -->|No| Y[Prepare insertion at selected line]
+        X --> Y
+        Y --> Z[Preview each proposed code change and conflicts]
+    end
+    L --> M
+    P -.-> R
+    Z --> AA[Save Draft / review change set and Source Control diff]
+    AA --> AB{Source changed since preview?}
+    AB -->|Yes| R
+    AB -->|No| AC{Explicitly approve GitHub commit?}
+    AC -->|No| AD[Keep draft uncommitted]
+    AC -->|Yes| AE[Commit approved changes to selected branch]
+```
+
 
 ## Decision — Original repository Tasks 17–19 superseded (2026-11-22)
 
