@@ -61,7 +61,9 @@ flowchart TD
     M -->|No| O[Keep uncommitted draft]
 ```
 
-**Task 15 JSON integration and file locations:** In `LuxrajKayal/luxraj-portfolio` (`main`), this planning file is `/Luxraj_CMS_Revised_Metadata_Injector_Living_Plan.md` and its configuration file is `/Luxraj_CMS_Working_Sheet_Config.json`; when both are later copied into the same Luxraj-CMS directory, use the JSON `website_categories`, `page_categories`, and `generator` data to drive Task 15 website/page selection and boilerplate generation (planning reference only; no CMS implementation authorized).
+**Task 15 JSON integration and file locations:** In `LuxrajKayal/luxraj-portfolio` (`main`), this planning file is `/Luxraj_CMS_Revised_Metadata_Injector_Living_Plan.md` and its configuration file is `/Luxraj_CMS_Working_Sheet_Config.json`; when both are later copied into the same Luxraj-CMS directory, use the JSON `website_categories`, `page_categories`, and `generator` data to drive Task 15 website/page selection and boilerplate generation .
+
+
 ## Task 16 — Code Injector (agreed, divided into three segments)
 
 **Location:** **Code Injector** is the second option in the Metadata Injector viewport's dedicated sidebar, after **Boilerplate Generator** (Task 15). This feature has a main code preview/editor area and a right-side control window. Code Injector uses the identification boilerplate created in Task 15; it does not decide page categories from directory or file names.
