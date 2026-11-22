@@ -1,0 +1,338 @@
+{
+  "schema_version": "1.0",
+  "source": {
+    "title": "Luxraj CMS — Working Sheet",
+    "spreadsheet_id": "1EYjrBBuVWsJj-AJARARPTUELAtcvTVzA2IGI60yrlp4",
+    "url": "https://docs.google.com/spreadsheets/d/1EYjrBBuVWsJj-AJARARPTUELAtcvTVzA2IGI60yrlp4/edit",
+    "tabs": [
+      "Main page",
+      "Pages Category ",
+      "Websites catagory"
+    ],
+    "export_type": "structured current category and generator configuration"
+  },
+  "website_categories": [
+    {
+      "website_type": "Blog",
+      "category_key": "blog",
+      "cms_website_attribute": "data-cms-website=\"blog\""
+    },
+    {
+      "website_type": "News & Magazine",
+      "category_key": "news",
+      "cms_website_attribute": "data-cms-website=\"news\""
+    },
+    {
+      "website_type": "Personal Portfolio",
+      "category_key": "portfolio",
+      "cms_website_attribute": "data-cms-website=\"portfolio\""
+    },
+    {
+      "website_type": "Documentation & KB",
+      "category_key": "documentation",
+      "cms_website_attribute": "data-cms-website=\"documentation\""
+    },
+    {
+      "website_type": "E-commerce",
+      "category_key": "ecommerce",
+      "cms_website_attribute": "data-cms-website=\"ecommerce\""
+    },
+    {
+      "website_type": "Business & Corporate",
+      "category_key": "business",
+      "cms_website_attribute": "data-cms-website=\"business\""
+    },
+    {
+      "website_type": "Professional Services",
+      "category_key": "services",
+      "cms_website_attribute": "data-cms-website=\"services\""
+    },
+    {
+      "website_type": "Education & E-learning",
+      "category_key": "education",
+      "cms_website_attribute": "data-cms-website=\"education\""
+    },
+    {
+      "website_type": "Software & SaaS",
+      "category_key": "software",
+      "cms_website_attribute": "data-cms-website=\"software\""
+    },
+    {
+      "website_type": "Community & Forum",
+      "category_key": "community",
+      "cms_website_attribute": "data-cms-website=\"community\""
+    },
+    {
+      "website_type": "Entertainment & Media",
+      "category_key": "entertainment",
+      "cms_website_attribute": "data-cms-website=\"entertainment\""
+    },
+    {
+      "website_type": "Travel & Tourism",
+      "category_key": "travel",
+      "cms_website_attribute": "data-cms-website=\"travel\""
+    }
+  ],
+  "page_categories": [
+    {
+      "page_type": "Home",
+      "category_key": "universal",
+      "cms_page_type_key": "homepage"
+    },
+    {
+      "page_type": "Category Landing Page",
+      "category_key": "universal",
+      "cms_page_type_key": "categoryLanding"
+    },
+    {
+      "page_type": "About",
+      "category_key": "universal",
+      "cms_page_type_key": "AboutPage"
+    },
+    {
+      "page_type": "FAQ",
+      "category_key": "universal",
+      "cms_page_type_key": "FAQPage"
+    },
+    {
+      "page_type": "Q&A",
+      "category_key": "universal",
+      "cms_page_type_key": "QAPage"
+    },
+    {
+      "page_type": "Privacy Policy",
+      "category_key": "universal",
+      "cms_page_type_key": "privacyPolicy"
+    },
+    {
+      "page_type": "Legal Notice",
+      "category_key": "universal",
+      "cms_page_type_key": "legalNotice"
+    },
+    {
+      "page_type": "Contact",
+      "category_key": "universal",
+      "cms_page_type_key": "ContactPage"
+    },
+    {
+      "page_type": "Social",
+      "category_key": "universal",
+      "cms_page_type_key": "social"
+    },
+    {
+      "page_type": "Newsletter",
+      "category_key": "universal",
+      "cms_page_type_key": "newsletter"
+    },
+    {
+      "page_type": "Help & Support",
+      "category_key": "universal",
+      "cms_page_type_key": "helpSupport"
+    },
+    {
+      "page_type": "HTML Sitemap",
+      "category_key": "universal",
+      "cms_page_type_key": "htmlSitemap"
+    },
+    {
+      "page_type": "Disclaimer",
+      "category_key": "universal",
+      "cms_page_type_key": "disclaimer"
+    },
+    {
+      "page_type": "Team",
+      "category_key": "universal",
+      "cms_page_type_key": "team"
+    },
+    {
+      "page_type": "Subcategory Landing Page",
+      "category_key": "universal",
+      "cms_page_type_key": "subcategoryLanding"
+    },
+    {
+      "page_type": "Promotional Landing Page",
+      "category_key": "universal",
+      "cms_page_type_key": "promotionalLanding"
+    },
+    {
+      "page_type": "Multimedia",
+      "category_key": "universal",
+      "cms_page_type_key": "multimedia"
+    },
+    {
+      "page_type": "Careers",
+      "category_key": "universal",
+      "cms_page_type_key": "careers"
+    },
+    {
+      "page_type": "Article - Blog",
+      "category_key": "blog",
+      "cms_page_type_key": "BlogPosting"
+    },
+    {
+      "page_type": "Editorial - Blog",
+      "category_key": "blog",
+      "cms_page_type_key": "opinionEditorial"
+    },
+    {
+      "page_type": "Author Profile - Blog",
+      "category_key": "blog",
+      "cms_page_type_key": "ProfilePage"
+    },
+    {
+      "page_type": "Article - News",
+      "category_key": "news",
+      "cms_page_type_key": "NewsArticle"
+    },
+    {
+      "page_type": "Editorial - News",
+      "category_key": "news",
+      "cms_page_type_key": "newsEditorial"
+    },
+    {
+      "page_type": "Journalist Profile",
+      "category_key": "news",
+      "cms_page_type_key": "ProfilePage"
+    },
+    {
+      "page_type": "Live News",
+      "category_key": "news",
+      "cms_page_type_key": "LiveBlogPosting"
+    },
+    {
+      "page_type": "Hire Me",
+      "category_key": "portfolio",
+      "cms_page_type_key": "hireMe"
+    },
+    {
+      "page_type": "Project Detail",
+      "category_key": "portfolio",
+      "cms_page_type_key": "portfolioProject"
+    },
+    {
+      "page_type": "Resume",
+      "category_key": "portfolio",
+      "cms_page_type_key": "portfolioResume"
+    },
+    {
+      "page_type": "Documentation Page",
+      "category_key": "documentation",
+      "cms_page_type_key": "documentationPage"
+    },
+    {
+      "page_type": "API Reference",
+      "category_key": "documentation",
+      "cms_page_type_key": "APIReference"
+    },
+    {
+      "page_type": "Shop / Buy",
+      "category_key": "ecommerce",
+      "cms_page_type_key": "storefront"
+    },
+    {
+      "page_type": "Product",
+      "category_key": "ecommerce",
+      "cms_page_type_key": "Product"
+    },
+    {
+      "page_type": "Store Locator",
+      "category_key": "ecommerce",
+      "cms_page_type_key": "storeLocator"
+    },
+    {
+      "page_type": "Job Posting",
+      "category_key": "business",
+      "cms_page_type_key": "JobPosting"
+    },
+    {
+      "page_type": "Service Detail",
+      "category_key": "services",
+      "cms_page_type_key": "Service"
+    },
+    {
+      "page_type": "Professional / Practitioner Profile",
+      "category_key": "services",
+      "cms_page_type_key": "ProfilePage"
+    },
+    {
+      "page_type": "Course Detail",
+      "category_key": "education",
+      "cms_page_type_key": "Course"
+    },
+    {
+      "page_type": "Academic Program Detail",
+      "category_key": "education",
+      "cms_page_type_key": "EducationalOccupationalProgram"
+    },
+    {
+      "page_type": "Software Application Detail",
+      "category_key": "software",
+      "cms_page_type_key": "SoftwareApplication"
+    },
+    {
+      "page_type": "Integration Detail",
+      "category_key": "software",
+      "cms_page_type_key": "integrationDetail"
+    },
+    {
+      "page_type": "Discussion Thread",
+      "category_key": "community",
+      "cms_page_type_key": "DiscussionForumPosting"
+    },
+    {
+      "page_type": "Media Title Detail",
+      "category_key": "entertainment",
+      "cms_page_type_key": "mediaTitle"
+    },
+    {
+      "page_type": "Episode Detail",
+      "category_key": "entertainment",
+      "cms_page_type_key": "episodeDetail"
+    },
+    {
+      "page_type": "Accommodation Detail",
+      "category_key": "travel",
+      "cms_page_type_key": "Accommodation"
+    },
+    {
+      "page_type": "Tour / Activity Detail",
+      "category_key": "travel",
+      "cms_page_type_key": "tourAactivity"
+    },
+    {
+      "page_type": "Attraction Detail",
+      "category_key": "travel",
+      "cms_page_type_key": "TouristAttraction"
+    }
+  ],
+  "generator": {
+    "tab": "Main page",
+    "current_selection": {
+      "website_type": "News & Magazine",
+      "category_key": "news",
+      "page_type": "Q&A",
+      "cms_page_type_key": "QAPage",
+      "status": "Page selection valid"
+    },
+    "html_attributes": {
+      "lang": "en",
+      "data-cms-seo": "true",
+      "data-cms-website": "{category_key}",
+      "data-cms-seo-type": "{cms_page_type_key}"
+    },
+    "current_boilerplate": "<html lang=\"en\"\n      data-cms-seo=\"true\"\n      data-cms-website=\"news\"\n      data-cms-seo-type=\"QAPage\">",
+    "selection_rules": {
+      "website_type_lookup": "website_categories.website_type → category_key",
+      "page_type_options": "page_categories where category_key is selected website category or universal",
+      "page_type_key_lookup": "page_categories.page_type + matching category → cms_page_type_key",
+      "selection_is_valid_when": "chosen page type belongs to selected website category or universal category"
+    },
+    "legacy_formula_references": [
+      {
+        "cell": "F8",
+        "referenced_sheet": "Applicability Matrix",
+        "issue": "The referenced sheet is not among the three currently present tabs; its outputs were not included in this JSON."
+      }
+    ]
+  }
+}
