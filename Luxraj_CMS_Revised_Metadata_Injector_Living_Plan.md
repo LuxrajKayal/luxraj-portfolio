@@ -2,14 +2,16 @@
 
 Status: Working planning notes; not implementation authorization.
 Started: 2026-11-22.
-Source of current decisions: discussion with project owner. This document is intended to be updated as subsequent tasks are agreed. Do not update the GitHub repository until explicitly requested.
 
-## Task 15 — Boilerplate Generator (agreed)
+
+## Task 15 — Boilerplate Generator 
 
 ### Location and navigation
-- Clicking **Metadata Injector** in the primary CMS sidebar opens its viewport.
+- Clicking **Metadata Injector** (Now will be Code Injector) in the primary CMS sidebar opens its viewport.
 - That viewport enables a new, feature-specific sidebar.
 - The first item in the new sidebar is **Boilerplate Generator**.
+
+  
 
 ### Generator
 1. Present dropdowns to choose **Website Type** and **Page Type**.
