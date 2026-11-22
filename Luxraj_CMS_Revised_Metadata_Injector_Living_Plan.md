@@ -43,6 +43,24 @@ The above category and page type are examples; actual attributes reflect selecte
 ### Superseded approach
 - The earlier Task 15 requirement that the user must manually paste identification attributes is replaced by **copy OR CMS-assisted injection**, at the user's choice.
 - The earlier prohibition on the CMS injecting the identification boilerplate is superseded for this specific, explicitly user-triggered Task 15 action.
+```mermaid
+flowchart TD
+    A[Open Metadata Injector] --> B[Select Boilerplate Generator]
+    B --> C[Choose Website Type and Page Type]
+    C --> D[Generate identification boilerplate]
+    D --> E{Copy or inject?}
+    E -->|Copy| F[Copy generated HTML attributes]
+    E -->|Inject| G[Detect HTML and HTM files in selected repository and branch]
+    G --> H[Select target page]
+    H --> I[Warn about replacing existing CMS boilerplate]
+    I --> J[Offer inspection in Code Editor]
+    J --> K[Prepare change to existing HTML tag; preserve unrelated attributes]
+    K --> L[Save draft and review Source Control diff]
+    L --> M{Approve commit?}
+    M -->|Yes| N[Commit to selected GitHub branch]
+    M -->|No| O[Keep uncommitted draft]
+```
+
 
 ## Task 16 — Code Injector (agreed, divided into three segments)
 
