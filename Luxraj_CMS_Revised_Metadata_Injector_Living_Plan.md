@@ -292,6 +292,9 @@ flowchart TD
 **Images and controlled presentation**
 - Authors add article images **by direct image links only**, not by uploading images into the article.
 - The Super Admin defines where images may appear, the permitted image slots, and the predefined sizes/dimensions for those positions. The Author inserts an approved direct image URL into those designated slots; the CMS renders the image using the prepared template/layout.
+- The Author enters the **hero image's direct URL once** in its designated field. The CMS automatically maps that single value to the visible hero image, **Open Graph `og:image`**, **X/Twitter `twitter:image`**, applicable **JSON-LD image fields**, and other image metadata required by the existing article template. The Author does not re-enter the same URL in each SEO field.
+- **BlogPosting schema structure and page type** are automatically initialized during blank draft generation based on the preselected Blog / Article boilerplate. Individual values that are not yet supplied remain unfilled/placeholders until available; **publication date** is not assumed to equal draft creation date.
+- Further mapping of the main **Title** and **Description** to other SEO title/description fields remains **undecided** and will be planned separately; do not assume all title or description metadata shares one value.
 - Super Admin controls the article's typography and text sizes, rather than allowing Authors arbitrary font sizes or raw style changes.
 
 **Save Draft versus Submit**
@@ -305,6 +308,12 @@ flowchart TD
 - From a submitted-task summary card, the Super Admin opens the corresponding submitted article in this dedicated interface.
 - The Super Admin can **mark specific lines, sections, or fields requiring refinement**, enter correction or rejection reasons in comment windows, and choose **Approve**, **Reject**, or **Return for Correction**.
 - When returning a submission, synchronize the marked fields/lines and the reasons with the Author's Dashboard and Workstation. The Author edits the returned article and resubmits it for another review under the original Task ID.
+
+**Super Admin-assigned revisions to existing articles**
+- The Super Admin can select an **existing article** and assign an update task to an Author, including **comments/instructions** specifying the changes needed. The task appears in the Author Dashboard with its Task ID.
+- The Author opens the **existing article** in the Workstation rather than creating a new blank article. Preserve its existing article identity, original creation/publication date, canonical URL, and breadcrumbs unless a separately approved change requires otherwise.
+- When the Author submits the revised article, record the **Author's submission date as the proposed updated date** and require the Author to provide an **Update Note** describing the changes for the Super Admin's review.
+- If corrections are returned and the Author resubmits, the proposed updated date follows the **latest submission date**. The live article keeps its currently published update date and content until the Super Admin approves the revision and completes the existing Code Editor publication workflow.
 
 **Approval of new articles and edits to existing articles**
 - The Super Admin reviews **both new article submissions and updates** submitted by Authors. An Author's edits to a previously approved article must again be **submitted for Super Admin approval**.
@@ -325,6 +334,15 @@ flowchart TD
 - This records the owner's agreed high-level Author Workstation behavior; detailed later Task 19 parts remain open.
 - Task 19 is a **new** plan and does not reinstate the original repository's superseded Task 19 (Missing-Placeholder Injection).
 - Nothing in Tasks 18–19 authorizes changes to GitHub, the repository README/roadmap, Supabase schema/configuration, or deployed CMS until separately requested.
+
+## Task 20 — Website Preview and Inspection (agreed planning)
+
+- Provide a **Website Preview** interface accessible to **both Authors and the Super Admin** from their respective CMS working areas.
+- Load the **existing live website** within the CMS using an **iframe**, based on the website URL configured by the Super Admin.
+- Allow both roles to **navigate existing website pages, refresh the preview, and visually inspect content and layout** to identify problems on the website.
+- Authors may **identify visible faults** through this preview; the feature does not grant them source-code, administrative, or publishing permissions. The Super Admin retains their existing authorized controls.
+- Embedded viewing depends on whether the target website allows iframe embedding through its **Content Security Policy / frame-ancestors** and **X-Frame-Options** configuration. Do not assume the CMS can access or inspect cross-origin iframe internals automatically.
+- **Fault reporting, assignment, or corrective-action workflow is not yet defined**; do not add one without a further planning decision.
 
 ## Future revisions
 - Append or revise subsequent decisions only when the project owner supplies and agrees to them.
