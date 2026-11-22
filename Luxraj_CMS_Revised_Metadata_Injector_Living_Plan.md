@@ -188,13 +188,6 @@ flowchart TD
 ```
 
 
-## Decision — Original repository Tasks 17–19 superseded (2026-11-22)
-
-- The previous GitHub roadmap's **Task 17 — Page Type Injection**, **Task 18 — Placeholder Verification**, and **Task 19 — Missing-Placeholder Injection** are **no longer part of the revised development plan as standalone tasks**.
-- Their original workflows and requirements are **not retained as separate feature commitments**. Any similar behavior now desired is defined only by the expressly agreed revised Tasks 15 and 16, not inherited from the old roadmap.
-- **Task numbers 17, 18, and 19 are available for entirely new plans**, to be defined later by the project owner. Do not invent replacement features yet.
-- This decision applies to the **Library working plan only**. The existing GitHub README, DEVELOPMENT_ROADMAP, source code, and other repository files are unchanged until the project owner specifically authorizes an update.
-
 ## Task 17 — Users & Permissions Control (agreed, 2026-11-22)
 
 ### Existing CMS location and account creation
