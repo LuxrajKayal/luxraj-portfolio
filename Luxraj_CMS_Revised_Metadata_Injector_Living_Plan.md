@@ -207,7 +207,11 @@ flowchart TD
 - Illustrative examples only: an **Author** writes or revises an article; a **Developer** fixes or develops a code feature; an **Advisor** reviews work or provides recommendations.
 - Assigned tasks should be visible to the corresponding user **inside that user's role-specific workspace**.
 - **Role** determines what workspace and controls the user may access; an assigned **task** determines the specific work expected from that person. Task assignment does not grant Super Admin privileges or change the user's role.
-- Exact task lifecycle, fields, statuses, and any submission/review features are **not yet specified**; do not add them without further owner direction.
+- When the Super Admin creates an assignment, the CMS **automatically generates a unique Task ID**; that Task ID remains associated with the task, its article submissions, and any correction/resubmission cycle.
+- Creating or changing an assignment updates the corresponding Author's **Pending Tasks** and task details/status in the Author Dashboard, synchronized with the Super Admin's task controls.
+- When cancelling a task, the Super Admin enters a **cancellation note**. The Author's task status becomes **Cancelled**, and the Super Admin's note is visible with that task. Both the cancellation and its note remain synchronized between the workspaces.
+- When an Author completes and submits assigned work, the **Super Admin Dashboard's top-right notification area** updates. A **submission summary card** appears in the same **Users & Permissions / task-assignment section** used to assign the task. The card shows the **Task ID, Author name, submission date/time, and Author's submission comment**.
+- The submission card summarizes the work; the Super Admin opens the actual article for review through the dedicated Author interface described in Task 19.
 
 ### Hold and Resume
 - The Super Admin may place a user **On Hold** to stop that user from working in the CMS, and may **Resume** the user later.
@@ -218,7 +222,7 @@ flowchart TD
 ### Scope and boundaries
 - These controls belong to the Super Admin's Users & Permissions section.
 - Account creation remains a **manual Supabase action** by the owner.
-- Do not presume that the detailed Author/Developer/Advisor workspace contents or task-management workflow are already approved.
+- The agreed Author-specific task synchronization, submission cards, and review workflow are detailed here and in Tasks 18–19; Developer and Advisor workspace details remain to be defined separately.
 - Planning only: do not change the GitHub repository, app code, README, roadmap, or Supabase configuration until separately authorized.
 
 ## Task 18 — Author Homepage and Workspace Entry (agreed, 2026-11-22)
@@ -236,6 +240,8 @@ flowchart TD
 - After successful login and completion of the required first-login profile, open the Author's **dedicated dashboard**, not the Super Admin dashboard.
 - Show the Author's **own created articles** and statuses, including **Draft**, **Submitted**, **Approved**, and **Rejected**.
 - Show **specific tasks assigned by the Super Admin** under Task 17, their current task statuses, and a **timeline** of progress/events (including assignment and deadlines where provided).
+- A newly assigned or modified task updates the Author's **Pending Tasks** and associated details automatically. A cancelled task remains visible with **Cancelled** status and the synchronized cancellation note entered by the Super Admin.
+- When work is **Returned for Correction**, show the reviewer's reasons and the specific marked fields/lines needing edits. The Author opens the returned item in the **Author Workstation**, corrects it, and resubmits it under the **same Task ID**.
 - Article status and assigned-task status are distinct; an assigned task can involve an article without becoming the article's publication/review status.
 - Authors can open their existing drafts for continued writing or editing. They cannot access other users' private work or Super Admin controls.
 
@@ -277,16 +283,29 @@ flowchart TD
 **Save Draft versus Submit**
 - **Save Draft** must work even if required fields, word/character thresholds, images, headings, or other checklist items are unfinished. Drafts retain unfinished work for later editing through the Author Dashboard.
 - **Submit to Super Admin** becomes available **only when every mandatory configured requirement is satisfied**. The CMS validates the real underlying input/content, not merely tick icons. A valid submission does not imply Super Admin approval.
-- Submission moves an article into review; the Author's dashboard reflects the article status.
+- Submission moves an article into review; the Author's dashboard reflects the article status. For assigned work, preserve the same automatically generated **Task ID**, and allow the Author to include a **submission comment**.
+- Upon submission, update the **Super Admin Dashboard's top-right notification area** and the **submission card** in **Users & Permissions / task assignment** (Task ID, Author name, submission time, Author comment).
+
+**Super Admin Author interface and review controls**
+- The Super Admin has an **Author** button in their own main sidebar. It opens an article interface with the Author's writing/review functionality **plus additional Super Admin controls**, without requiring the Super Admin to log in as an Author.
+- From a submitted-task summary card, the Super Admin opens the corresponding submitted article in this dedicated interface.
+- The Super Admin can **mark specific lines, sections, or fields requiring refinement**, enter correction or rejection reasons in comment windows, and choose **Approve**, **Reject**, or **Return for Correction**.
+- When returning a submission, synchronize the marked fields/lines and the reasons with the Author's Dashboard and Workstation. The Author edits the returned article and resubmits it for another review under the original Task ID.
 
 **Approval of new articles and edits to existing articles**
 - The Super Admin reviews **both new article submissions and updates** submitted by Authors. An Author's edits to a previously approved article must again be **submitted for Super Admin approval**.
 - Super Admin outcomes: **Approve**, **Reject**, or **Return for Correction**.
 - When returning work, the Super Admin can **mark the precise unsatisfactory items/sections** (e.g., description, specific heading, content or image), with comments. Those marked issues are visible to the Author, who can revise, save drafts, and resubmit.
 - Satisfying automatic word/character validation is **not equivalent to editorial approval**; the Super Admin may reject or return content even when counters pass.
-- Maintain an existing **approved article version unchanged** while an Author's proposed update remains in draft/review. Apply the replacement version only after Super Admin approval.
+- Maintain the existing **approved/published article version unchanged** while an Author's proposed update remains in draft/review and while an approved replacement awaits publication. Approval sends the replacement to Code Editor for the existing publishing process; it does **not** automatically replace the published version.
 - Preserve the original creation date; track modification/update dates distinctly. Do not confuse draft modification with the approved/public version's update.
-- Article workflow statuses include **Draft → Submitted → Approved / Rejected**, with **Returned for Correction** as a distinct review outcome leading to further editing and resubmission.
+- Article workflow distinguishes **Draft → Submitted → Approved / Rejected**, with **Returned for Correction** leading to editing and resubmission. **Approved** is not the same as **Published**.
+
+**Approved draft handoff to Code Editor and publication**
+- When satisfied with the article, the Super Admin clicks **Approve** in the Super Admin Author review interface. This **does not publish** the draft.
+- The approved draft becomes available in the existing **Code Editor** section, and a **small red notification dot** appears on the Code Editor sidebar item to draw the Super Admin's attention.
+- The **Super Admin**, not the regular Author, opens Code Editor, reviews the approved draft there, and completes publication using the **existing Code Editor publishing workflow** already planned. Do not create a second publishing workflow.
+- Ordinary Authors retain their Word-like Workstation and **do not gain Code Editor or publishing permissions** through article submission or approval.
 
 ### Scope of the decision
 - This records the owner's agreed high-level Author Workstation behavior; detailed later Task 19 parts remain open.
