@@ -87,27 +87,27 @@ flowchart TD
 5. The resulting group is a **reusable bulk-injectable template collection**. Users can select either a **single code template** or a **saved group** in the injection workflow. Group membership does not erase or combine the original saved code templates.
 
 **C. Presence-aware code cards**
-- Code template cards in the right control window show match status **against the currently selected HTML file**; update the statuses when the user changes the selected file.
+- Code template cards in the right control window show match status **against the currently selected source file**, regardless of its supported text-based file extension; update statuses when the selected file changes.
 - **Green tick:** all elements/script items represented by the card already match the selected file.
 - **Blue tick:** some, but not all, of the card's items match the selected file.
 - **No tick:** none of the items match the selected file.
 - Saved-group status is determined from its constituent code templates/items under the same complete/partial/none principle.
 - A presence indicator means **matching code is present**, not that its current values are SEO-correct.
 
-### Task 16.2 — Detect Matching Pages, Select a Code Line, and Inject
+### Task 16.2 — Detect Matching Pages and Source Files, Select a Code Line, and Inject
 
-**A. Select and detect target HTML pages**
+**A. Select and detect target pages or source files**
 1. Open **Code Injector** and its main code preview/editor interface.
 2. Select **Website Type** from a dropdown.
 3. Select **Page Type** from a dropdown.
-4. Click **Detect** to scan `.html` and `.htm` files in the **currently selected GitHub repository and branch**.
-5. Match the **existing Task 15 boilerplate** by both `data-cms-website` and `data-cms-seo-type` (with the existing CMS eligibility identification), and display only matching HTML pages.
-6. Choose the **preferred detected HTML page** using the page-selection menu.
+4. Click **Detect** to scan the relevant **text-based source files** in the currently selected GitHub repository and branch, including `.html`/`.htm`, `.css`, `.js` and other text source types. Do not restrict Code Injector to HTML/HTM only.
+5. For **HTML pages**, support the existing Task 15 boilerplate-based matching by both `data-cms-website` and `data-cms-seo-type` (with the existing CMS eligibility identification). For non-HTML files, which generally do not contain that HTML marker, allow deliberate Super Admin selection without falsely requiring an HTML boilerplate. Do not infer a page type from filenames.
+6. Let the Super Admin select the intended target source file or files. The saved code block's HTML/Script/CSS type describes the template, **not an extension-based barrier** that prohibits injection into another supported text file. The Super Admin chooses the code and insertion target.
 
 **B. Select code and its exact insertion line**
 7. Choose the saved **individual code template** or saved **group** to inject. Temporary instant-group selection is described in Task 16.3.
 8. Display the **actual selected file's code in a dedicated code-lines preview window**, with **visible line numbers**. This is an **essential step**, not an optional secondary feature.
-9. Let the user inspect the source code, click/select the **exact code line/insertion location** where the code should be placed, and recognize the intended location from the visible HTML structure.
+9. Let the Super Admin inspect the actual source code and click/select the **exact insertion line/location**. For HTML pages, the visible HTML structure guides placement; for other source files, use their actual displayed lines. Do not impose automatic extension-based restrictions on the Super Admin's choice.
 10. Show an **insertion preview** of how the selected code will appear at that chosen line before saving. Use the existing **Code Editor** for detailed inspection/editing where needed; the line-selection window must be usable in the Code Injector workflow itself.
 
 **C. Presence checks, warnings, and saving**
@@ -119,7 +119,7 @@ flowchart TD
 13. If no match exists, allow the user to proceed with the code insertion at the selected line.
 14. On confirmation, **Save Draft**, then inspect the proposed result through **Source Control** and explicitly **Commit** to the selected GitHub branch after review. Injection does not commit immediately.
 
-**Concise primary workflow:** Open Code Injector/code preview → Select website type and page type → Detect matching pages → Select preferred page → Choose individual code template or saved group → **Select exact code line in preview** → Preview insertion / resolve duplicate-or-replace warnings → **Save Draft → Review → Commit**.
+**Concise primary workflow:** Open Code Injector/code preview → Select website/page type when filtering CMS-identified HTML pages, or choose target source files directly → Detect/select intended files → Choose individual code template or saved group → **Select exact code line in each target file preview** → Preview insertion / resolve duplicate-or-replace warnings → **Save Draft → Review → Commit**.
 
 ### Task 16.3 — Instant Grouping and Bulk Injection
 
@@ -130,15 +130,15 @@ flowchart TD
 
 **B. Bulk injection using groups or instant selection**
 - A saved group or temporary instant group provides a way to inject **multiple code blocks together**.
-- Support applying selected code blocks or a group to **multiple detected matching HTML pages** in one bulk operation when the user selects multiple pages.
+- Support applying selected code blocks or a group to **multiple selected source files**, including identified HTML pages and other supported text-based files, in one bulk operation.
 - Inspect **each target file separately** for complete, partial, or absent code matches; update its presence statuses and show conflicts before preparing changes.
 - Preserve the **visible code-line preview and deliberate insertion-position selection**. When multiple files are involved, show/check insertion locations against **each actual file** rather than assuming one line number is correct for all files.
 - Duplicate/Replace choices must remain explicit where existing matching items are found; bulk mode never implies silent replacement.
 - Prepare a **reviewable draft/change set** listing all affected files and code changes. The user reviews the Source Control diffs and explicitly commits the approved change set.
 
 ### Shared controls, safety, and unresolved technical details
-- All Code Injector actions are scoped to the active **repository and branch** and preserve unrelated HTML, CSS, and script code.
-- Source edits from single templates, saved groups, or instant groups use the existing **Save Draft → Source Control diff/review → explicit GitHub commit** workflow.
+- All Code Injector actions are scoped to the active **repository and branch** and preserve unrelated source code. HTML-only boilerplate generation remains Task 15; Task 16's code injection is not limited by the target file extension.
+- Source edits from single templates, saved groups, or instant groups use the existing **Save Draft → Source Control diff/review → explicit GitHub commit** workflow. The existing 20-file-per-commit limit becomes a **Super Admin Settings** value, adjustable from **1 to 100 files**, with **20 as the default**. This setting controls how many reviewed files can be included in one commit, not how many files Code Injector can detect or prepare as drafts. The trusted backend must enforce the selected limit; all current commit safety checks remain.
 - If the selected source file changes between preview and commit, revalidate it rather than using stale code-line positions or overwriting remote updates.
 - The exact counting definition for **number of items** on a code card, advanced CSS/script syntax matching, and edge cases for conflicts inside large multi-item groups will be defined in later technical planning. These details do not change the requirement for user-selected code-line insertion.
 - Task 16 is a **planning decision**, not permission to modify the application or GitHub repository.
@@ -164,12 +164,12 @@ flowchart TD
     end
     B --> J
     subgraph T162[Task 16.2 - Page detection and line-specific injection]
-        M[Select Website Type and Page Type] --> N[Detect HTML / HTM pages in active repo and branch]
-        N --> O[Match Task 15 website and page type attributes]
-        O --> Q[Select target page or pages]
+        M[Select Website Type and Page Type] --> N[Detect HTML pages by CMS markers or select other text source files]
+        N --> O[Check HTML markers when applicable; allow deliberate file selection]
+        O --> Q[Select target source file or files]
         Q --> R[Inspect each actual page and code-card presence]
         R --> S[Show source with visible line numbers]
-        S --> U[Choose exact insertion line for EACH selected page]
+        S --> U[Choose exact insertion line for EACH selected file]
         U --> V[Check matching element or script syntax, not values alone]
         V --> W{Existing matching code?}
         W -->|Yes| X[Show matching items and warn; choose Duplicate or Replace]
@@ -200,6 +200,7 @@ flowchart TD
 - Each role has **its own CMS working area**, distinct from the Super Admin dashboard and management controls.
 - On login, the CMS opens the role-specific workspace. Regular users **must not see the Super Admin dashboard, sidebar, privileged tools, or management controls**, nor be able to access them through direct URLs or unauthorized backend calls.
 - Role describes the **position** and governs the working environment and permitted capabilities. The exact screens and controls inside Author, Developer, and Advisor workspaces will be decided separately; do not invent a detailed permission matrix yet.
+- An Author may be authorized by the Super Admin to work on **multiple Blog websites**. The Super Admin establishes which websites and associated categories are available to that Author. The Author selects from those authorized website/category options; those choices connect the Supabase Markdown draft with the configured destination for eventual publication. **Keep the precise repository/branch assignment mechanism open** for later technical planning.
 - A user must not receive another role's working area merely because a task is assigned to them.
 
 ### Position-based task assignment
@@ -241,7 +242,8 @@ flowchart TD
 - This is the entry/profile stage, not a separate user-registration feature; the Super Admin creates accounts manually in Supabase under Task 17.
 
 ### Task 18.2 — Author Dashboard
-- After successful login and completion of the required first-login profile, open the Author's **dedicated dashboard**, not the Super Admin dashboard.
+- The Author may **log in and access their dedicated dashboard, available tools, and other permitted workspace areas even while their profile approval is pending**; do not grant access to the Super Admin dashboard. Profile creation/submission is still mandatory, and pending information is not treated as approved article identity.
+- While the Author's required profile approval is pending, **block article Preview (new-tab preview) and Submit for Review**. Workspace browsing and other permitted tools remain available; unfinished Supabase drafts can still be saved. Once the Super Admin approves the required profile and the website-hosted Author image is ready under the existing asset-commit rule, those article actions become eligible, subject to normal article validation.
 - Show the Author's **own created articles** and statuses, including **Draft**, **Submitted**, **Approved**, and **Rejected**.
 - Show **specific tasks assigned by the Super Admin** under Task 17, their current task statuses, and a **timeline** of progress/events (including assignment and deadlines where provided).
 - A newly assigned or modified task updates the Author's **Pending Tasks** and associated details automatically. A cancelled task remains visible with **Cancelled** status and the synchronized cancellation note entered by the Super Admin.
