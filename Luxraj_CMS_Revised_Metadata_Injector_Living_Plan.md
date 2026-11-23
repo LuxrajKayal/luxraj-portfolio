@@ -61,7 +61,7 @@ flowchart TD
     M -->|No| O[Keep uncommitted draft]
 ```
 
-**Task 15 JSON integration and file locations:** In `LuxrajKayal/luxraj-portfolio` (`main`), this planning file is `/Luxraj_CMS_Revised_Metadata_Injector_Living_Plan.md` and its configuration file is `/Luxraj_CMS_Working_Sheet_Config.json`; when both are later copied into the same Luxraj-CMS directory, use the JSON `website_categories`, `page_categories`, and `generator` data to drive Task 15 website/page selection and boilerplate generation .
+**Task 15 JSON integration and file locations:** This planning document remains in `LuxrajKayal/luxraj-portfolio` (`main`). The working-sheet configuration has been moved to [`LuxrajKayal/Luxraj-CMS/docs/Luxraj_CMS_Working_Sheet_Config.json`](https://github.com/LuxrajKayal/Luxraj-CMS/blob/main/docs/Luxraj_CMS_Working_Sheet_Config.json) on `main`. For implementation, use the JSON `website_categories`, `page_categories`, and `generator` data to drive Task 15 website/page selection and boilerplate generation.
 
 
 ## Task 16 — Code Injector (agreed, divided into three segments)
